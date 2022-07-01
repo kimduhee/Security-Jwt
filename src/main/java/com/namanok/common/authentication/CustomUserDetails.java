@@ -1,4 +1,4 @@
-package com.namanok.common.auth;
+package com.namanok.common.authentication;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,42 +6,43 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.namanok.model.UserEntity;
+import com.namanok.entity.User;
+
+import lombok.Getter;
+
 
 /**
  * UserDetails: 사용자의 정보를 담는 interface
- * 
- * @author namanok
- *
  */
-public class PrincipalDetails implements UserDetails{
-
-	private static final long serialVersionUID = 838160654911836036L;
+@Getter
+public class CustomUserDetails implements UserDetails {
 	
-	private UserEntity userEntity;
+	private static final long serialVersionUID = -6005048232838207154L;
 	
-	public PrincipalDetails(UserEntity userEntity) {
-		this.userEntity = userEntity;
+	private User user;
+	
+	public CustomUserDetails(User user) {
+		this.user = user;
 	}
-	
+
 	/**
 	 * 계정의 권한 목록을 리턴
 	 */
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Collection<GrantedAuthority> authorities = new ArrayList<>();
-		userEntity.getRoleList().forEach(r -> {
+		user.getRoleList().forEach(r->{
 			authorities.add(()->r);
 		});
-		return null;
+		return authorities;
 	}
-	
+
 	/**
 	 * 계정의 비밀번호를 리턴
 	 */
 	@Override
 	public String getPassword() {
-		return userEntity.getPassword();
+		return user.getPassword();
 	}
 
 	/**
@@ -49,7 +50,7 @@ public class PrincipalDetails implements UserDetails{
 	 */
 	@Override
 	public String getUsername() {
-		return userEntity.getUsername();
+		return user.getUserId();
 	}
 
 	/**
@@ -87,5 +88,6 @@ public class PrincipalDetails implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
-
+	
+	
 }
