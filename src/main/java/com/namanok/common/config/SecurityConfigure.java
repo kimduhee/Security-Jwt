@@ -56,7 +56,7 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter{
 			.authenticationEntryPoint(authenticationEntryPoint())
 			.and()
 			.formLogin().disable()	//폼로그인 사용안함
-			.httpBasic().disable()
+			.httpBasic().disable()	//header id:password 방식 사용안함
 			.authorizeHttpRequests()
 //			.antMatchers("/권한필요주소").hasAuthority("ROLE_USER")
 			.anyRequest().permitAll();
@@ -77,6 +77,11 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter{
 		return new BCryptPasswordEncoder();
 	}
 
+	/**
+	 * 인증되지 않은 사용자에 대한 처리
+	 * 
+	 * @return
+	 */
 	@Bean
 	public CustomAuthenticationEntryPoint authenticationEntryPoint() {
 		return new CustomAuthenticationEntryPoint();
