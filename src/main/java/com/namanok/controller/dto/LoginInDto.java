@@ -15,7 +15,7 @@ import lombok.Data;
 @Data
 public class LoginInDto {
 	
-	@ApiModelProperty(value="아이디", example="hong", required=true)
+	@ApiModelProperty(value="아이디", example="namanok", required=true)
 	private String userId;		//아이디
 	
 	@ApiModelProperty(value="패스워드", example="1234", required=true)

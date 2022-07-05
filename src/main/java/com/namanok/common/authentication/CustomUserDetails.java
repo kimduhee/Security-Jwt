@@ -10,7 +10,6 @@ import com.namanok.entity.User;
 
 import lombok.Getter;
 
-
 /**
  * UserDetails: 사용자의 정보를 담는 interface
  */
