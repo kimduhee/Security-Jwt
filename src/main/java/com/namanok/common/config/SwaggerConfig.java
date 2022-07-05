@@ -16,6 +16,8 @@ import java.util.List;
 
 /**
  * swagger ¼³Á¤
+ * 
+ * swagger url : http://localhost:8080/swagger-ui.html
  */
 @Configuration
 @EnableSwagger2

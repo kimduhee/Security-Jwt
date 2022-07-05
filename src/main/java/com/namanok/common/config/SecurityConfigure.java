@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity(debug=true)
 public class SecurityConfigure extends WebSecurityConfigurerAdapter{
 	
 	private final UserRepository userRepository;

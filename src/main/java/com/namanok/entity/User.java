@@ -15,16 +15,17 @@ import lombok.ToString;
 @ToString
 @Data
 @Entity
-@Table(name="\"USER\"")	//h2 경우 이와 같이 ""로 name을 정의해 줘야 함
+@Table(name="\"USER\"")
 public class User {
 	
 	@Id
+	@Column(name = "userId", nullable = false, length = 10)
 	private String userId;	//아이디
 	
-	@Column(name = "password", nullable = false)
+	@Column(name = "password", nullable = false, length = 100)
 	private String password;//패스워드
 	
-	@Column(name = "name", nullable = false)
+	@Column(name = "name", nullable = false, length = 10)
 	private String name;	//이름
 
 	@Column(name = "roles", nullable = false)
