@@ -1,12 +1,14 @@
 package com.namanok.common.filter;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -107,5 +109,22 @@ public class CustomUsernamePasswordAuthenticationFilter extends UsernamePassword
 		String jwtToken = JwtUtil.createJWT(principalDetails.getUser().getUserId(), secretKey);
 		
 		response.addHeader("Authorization", "Bearer " + jwtToken);
+		
+		response.setContentType("application/json;charset=UTF-8");
+		response.setStatus(HttpServletResponse.SC_OK);
+		
+		JSONObject loginInfo = new JSONObject();
+		loginInfo.put("userId", principalDetails.getUser().getUserId());
+		
+		JSONObject responseJson = new JSONObject();
+		responseJson.put("timestamp", LocalDateTime.now());
+		responseJson.put("status", "success");
+		responseJson.put("data", loginInfo);
+
+		try {
+			response.getWriter().print(responseJson);
+		} catch (IOException e) {
+			log.error("successfulAuthentication Exception : {} ", e);
+		}	
 	}
 }
