@@ -34,7 +34,7 @@ public class User {
 	@CreationTimestamp
 	private Timestamp joinDate;	//가입일
 	
-	@Column(name = "roles", nullable = false)
+	@Column(name = "roles", nullable = false, length = 100)
 	private String roles;	//권한
 	
 	public List<String> getRoleList() {
