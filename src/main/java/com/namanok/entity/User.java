@@ -22,13 +22,13 @@ import lombok.ToString;
 public class User {
 	
 	@Id
-	@Column(name = "userId", nullable = false, length = 10)
+	@Column(name = "userid", nullable = false, length = 10)
 	private String userId;	//아이디
 	
 	@Column(name = "password", nullable = false, length = 100)
 	private String password;//패스워드
 	
-	@Column(name = "name", nullable = false, length = 10)
+	@Column(name = "NAME", nullable = false, length = 10)
 	private String name;	//이름
 
 	@CreationTimestamp
