@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import lombok.Data;
 import lombok.ToString;
@@ -37,7 +39,8 @@ public class Notice {
 	@CreationTimestamp
 	private Timestamp regDate;
 	
-	@JoinColumn(name = "userId")
 	@ManyToOne
+	@JoinColumn(name = "userId")
+	//@OnDelete(action = OnDeleteAction.CASCADE)
 	private User user;
 }

@@ -31,7 +31,7 @@ public class UserController {
 	 * @param input
 	 * @return
 	 */
-	@ApiOperation(value="회원가입", notes="회원가입을 처리하는 API입니다.")
+	@ApiOperation(value="회원가입", notes="회원가입을 처리하는 API")
 	@PostMapping(value="/signup")
 	public ResponseEntity<Object> signup(@RequestBody @Validated SignupInDto input) {
 		userService.signup(input);
