@@ -1,5 +1,6 @@
 package com.namanok.controller;
 
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.namanok.service.NoticeService;
@@ -14,4 +15,8 @@ public class NoticeController {
 
 	private final NoticeService noticeService;
 	
+	@PostMapping(value = "/notice")
+	public String noticeList() {
+		return "{\"aa\",\"bb\"}";
+	}
 }
