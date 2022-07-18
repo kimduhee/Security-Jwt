@@ -1,0 +1,18 @@
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+	function execute(url, data) {
+		
+		$.ajax({
+	        type: 'POST',
+	        url: url,
+	        dataType: 'json',
+	        contentType:'application/json; charset=utf-8',
+	        data: JSON.stringify(data)
+	    }).done(function(data) {
+			alert(data);
+	    }).fail(function (error) {
+	        alert(JSON.stringify(error));
+	    });
+	}
+</script>

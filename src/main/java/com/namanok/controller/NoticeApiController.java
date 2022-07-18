@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-public class NoticeController {
+public class NoticeApiController {
 
 	private final NoticeService noticeService;
 	
