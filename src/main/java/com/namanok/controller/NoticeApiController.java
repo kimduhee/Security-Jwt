@@ -1,6 +1,9 @@
 package com.namanok.controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.namanok.service.NoticeService;
@@ -15,8 +18,53 @@ public class NoticeApiController {
 
 	private final NoticeService noticeService;
 	
-	@PostMapping(value = "/notice")
+	/**
+	 * 게시물 목록 조회
+	 * 
+	 * @return
+	 */
+	@GetMapping(value = "/notice")
 	public String noticeList() {
+		return "{\"aa\",\"bb\"}";
+	}
+	
+	/**
+	 * 게시물 상세 조회
+	 * 
+	 * @return
+	 */
+	@GetMapping(value = "/notice/{seq}")
+	public String noticeDetail() {
+		return "{\"aa\",\"bb\"}";
+	}
+	
+	/**
+	 * 게시물 등록
+	 * 
+	 * @return
+	 */
+	@PostMapping(value = "/notice")
+	public String noticeInsert() {
+		return "{\"aa\",\"bb\"}";
+	}
+
+	/**
+	 * 게시물 수정
+	 * 
+	 * @return
+	 */
+	@PutMapping(value = "/notice/{seq}")
+	public String noticeUpdate() {
+		return "{\"aa\",\"bb\"}";
+	}
+	
+	/**
+	 * 게시물 삭제
+	 * 
+	 * @return
+	 */
+	@DeleteMapping(value = "/notice/{seq}")
+	public String noticeDelete() {
 		return "{\"aa\",\"bb\"}";
 	}
 }
