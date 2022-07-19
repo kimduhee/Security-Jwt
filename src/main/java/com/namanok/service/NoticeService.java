@@ -2,6 +2,7 @@ package com.namanok.service;
 
 import org.springframework.stereotype.Service;
 
+import com.namanok.entity.Notice;
 import com.namanok.repository.NoticeRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -14,8 +15,22 @@ public class NoticeService {
 
 	private final NoticeRepository noticeRepository;
 	
+	/**
+	 * 게시물 삭제
+	 * 
+	 * @param seq
+	 */
 	public void noticeDelete(Long seq) {
-		
+		noticeRepository.deleteById(seq);
 	}
 
+	/**
+	 * 게시물 등록
+	 * 
+	 * @param notice
+	 */
+	public void noticeInsert(Notice notice) {
+		noticeRepository.save(notice);
+	}
+	
 }

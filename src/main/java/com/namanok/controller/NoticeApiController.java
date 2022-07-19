@@ -2,12 +2,13 @@ package com.namanok.controller;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.namanok.entity.Notice;
 import com.namanok.service.NoticeService;
 
 import lombok.RequiredArgsConstructor;
@@ -36,7 +37,7 @@ public class NoticeApiController {
 	 * @return
 	 */
 	@GetMapping(value = "/notice/{seq}")
-	public String noticeDetail() {
+	public String noticeDetail(@RequestParam Long seq) {
 		return "{\"aa\",\"bb\"}";
 	}
 	
@@ -46,7 +47,8 @@ public class NoticeApiController {
 	 * @return
 	 */
 	@PostMapping(value = "/notice")
-	public String noticeInsert() {
+	public String noticeInsert(@RequestBody Notice notice) {
+		noticeService.noticeInsert(notice);
 		return "{\"aa\",\"bb\"}";
 	}
 
@@ -56,7 +58,7 @@ public class NoticeApiController {
 	 * @return
 	 */
 	@PutMapping(value = "/notice/{seq}")
-	public String noticeUpdate() {
+	public String noticeUpdate(@RequestParam Long seq) {
 		return "{\"aa\",\"bb\"}";
 	}
 	
