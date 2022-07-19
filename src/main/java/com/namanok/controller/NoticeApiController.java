@@ -59,7 +59,8 @@ public class NoticeApiController {
 	 * @return
 	 */
 	@PutMapping(value = "/notice/{seq}")
-	public String noticeUpdate(@RequestParam Long seq) {
+	public String noticeUpdate(@RequestBody Notice notice) {
+		noticeService.noticeUpdate(notice);
 		return "{\"aa\",\"bb\"}";
 	}
 	

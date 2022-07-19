@@ -28,6 +28,15 @@ public class NoticeService {
 	}
 	
 	/**
+	 * 게시물 수정
+	 * 
+	 * @param seq
+	 */
+	public void noticeUpdate(Notice notice) {
+		noticeRepository.save(notice);
+	}
+	
+	/**
 	 * 게시물 삭제
 	 * 
 	 * @param seq
