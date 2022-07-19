@@ -13,5 +13,9 @@ import lombok.extern.slf4j.Slf4j;
 public class NoticeService {
 
 	private final NoticeRepository noticeRepository;
+	
+	public void noticeDelete(Long seq) {
+		
+	}
 
 }
