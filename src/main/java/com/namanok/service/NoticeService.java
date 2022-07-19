@@ -1,5 +1,7 @@
 package com.namanok.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.namanok.entity.Notice;
@@ -14,6 +16,16 @@ import lombok.extern.slf4j.Slf4j;
 public class NoticeService {
 
 	private final NoticeRepository noticeRepository;
+	
+	/**
+	 * 게시물 상세
+	 * 
+	 * @param seq
+	 * @return
+	 */
+	public Optional<Notice> noticeDetail(Long seq) {
+		return noticeRepository.findById(seq);
+	}
 	
 	/**
 	 * 게시물 삭제

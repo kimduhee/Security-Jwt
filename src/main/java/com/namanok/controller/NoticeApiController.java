@@ -38,6 +38,7 @@ public class NoticeApiController {
 	 */
 	@GetMapping(value = "/notice/{seq}")
 	public String noticeDetail(@RequestParam Long seq) {
+		noticeService.noticeDetail(seq);
 		return "{\"aa\",\"bb\"}";
 	}
 	
