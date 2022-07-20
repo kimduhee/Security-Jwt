@@ -16,9 +16,9 @@ public class NoticeViewController {
 	 * 
 	 * @return
 	 */
-	@GetMapping(value="/noticeListView")
-	public String noticeListView() {
-		return "/noticeListView";
+	@GetMapping(value="/noticeList")
+	public String noticeList() {
+		return "/noticeList";
 	}
 	
 	/**
@@ -26,9 +26,9 @@ public class NoticeViewController {
 	 * 
 	 * @return
 	 */
-	@GetMapping(value="/noticeDetailView")
-	public String noticeDetailView() {
-		return "/noticeDetailView";
+	@GetMapping(value="/noticeDetail")
+	public String noticeDetail() {
+		return "/noticeDetail";
 	}
 	
 	/**
