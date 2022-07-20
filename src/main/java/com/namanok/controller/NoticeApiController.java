@@ -50,7 +50,7 @@ public class NoticeApiController {
 	@PostMapping(value = "/notice")
 	public String noticeInsert(@RequestBody Notice notice) {
 		noticeService.noticeInsert(notice);
-		return "{\"aa\",\"bb\"}";
+		return "{\"result\",\"success\"}";
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class NoticeApiController {
 	@PutMapping(value = "/notice/{seq}")
 	public String noticeUpdate(@RequestBody Notice notice) {
 		noticeService.noticeUpdate(notice);
-		return "{\"aa\",\"bb\"}";
+		return "{\"result\",\"success\"}";
 	}
 	
 	/**
@@ -72,6 +72,6 @@ public class NoticeApiController {
 	@DeleteMapping(value = "/notice/{seq}")
 	public String noticeDelete(@RequestParam Long seq) {
 		noticeService.noticeDelete(seq);
-		return "{\"aa\",\"bb\"}";
+		return "{\"result\",\"success\"}";
 	}
 }
