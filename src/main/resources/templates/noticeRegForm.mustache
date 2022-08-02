@@ -4,13 +4,32 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	{{>layout/script}}
+	<script>
+		function goReg() {
+			alert($("#frm").serializeObject());
+			/*
+			$.ajax({
+		        type: 'POST',
+		        url: url,
+		        dataType: 'json',
+		        contentType:'application/json; charset=utf-8',
+		        data: $("#frm").stringify()
+		    }).done(function(data) {
+				alert(data);
+		    }).fail(function (error) {
+		        alert(JSON.stringify(error));
+		    });
+		    */
+		}
+	</script>
 	
 </head>
 <body>
-	<h1>�Խù� ���</h1>
-	<script>
-		function goList() {
-		}
-	</script>
+	<h1>게시판 등록</h1>
+<form id="frm" name="frm">
+	제목 : <input type="text" id="title" name="title" /> <br>
+	내용 : <textarea id="contents" name="contents" cols="50" rows="10"></textarea>
+	<a href="javascript:goReg()">저장</a>
+</form>
 </body>
 </html>
