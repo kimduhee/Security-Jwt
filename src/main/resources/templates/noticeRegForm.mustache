@@ -6,20 +6,20 @@
 	{{>layout/script}}
 	<script>
 		function goReg() {
-			alert($("#frm").serializeObject());
-			/*
 			$.ajax({
 		        type: 'POST',
-		        url: url,
-		        dataType: 'json',
+		        url: "/notice",
+		        //dataType: 'json',
 		        contentType:'application/json; charset=utf-8',
-		        data: $("#frm").stringify()
+		        data: JSON.stringify($("#frm").serializeObject())
 		    }).done(function(data) {
+				alert("1");
 				alert(data);
 		    }).fail(function (error) {
+		    alert("2");
 		        alert(JSON.stringify(error));
 		    });
-		    */
+
 		}
 	</script>
 	
