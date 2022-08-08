@@ -26,8 +26,9 @@ public class NoticeApiController {
 	 * 
 	 * @return
 	 */
-	@GetMapping(value = "/notice")
-	public String noticeList() {
+	@PostMapping(value = "/notice/search")
+	public String noticeSearch() {
+		noticeService.noticeSearch();
 		return "{\"aa\",\"bb\"}";
 	}
 	

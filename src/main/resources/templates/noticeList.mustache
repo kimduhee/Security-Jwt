@@ -4,9 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	{{>layout/script}}
-</head>
-<body>
-	<h1>게시판 목록</h1>
 	<script>
 		
 		function goDetail() {
@@ -22,8 +19,27 @@
 		}
 		
 		function goSearch() {
+			$.ajax({
+		        type: 'POST',
+		        url: "/notice",
+		        //dataType: 'json',
+		        contentType:'application/json; charset=utf-8',
+		        data: JSON.stringify($("#frm").serializeObject())
+		    }).done(function(data) {
+				alert("1");
+				alert(data);
+		    }).fail(function (error) {
+		        alert(JSON.stringify(error));
+		    });
 		}
 		
 	</script>
+</head>
+<body>
+	<h1>게시판 목록</h1>
+	
+<a href="javascript:goSearch();">목록</>
+<form id="frm" name="frm">
+</form>
 </body>
 </html>

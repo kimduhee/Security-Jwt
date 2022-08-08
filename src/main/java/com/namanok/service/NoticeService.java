@@ -1,5 +1,6 @@
 package com.namanok.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -16,6 +17,10 @@ import lombok.extern.slf4j.Slf4j;
 public class NoticeService {
 
 	private final NoticeRepository noticeRepository;
+	
+	public List<Notice> noticeSearch() {
+		return noticeRepository.findAll();
+	}
 	
 	/**
 	 * 게시물 상세
