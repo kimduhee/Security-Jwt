@@ -21,12 +21,11 @@
 		function goSearch() {
 			$.ajax({
 		        type: 'POST',
-		        url: "/notice",
+		        url: "/notice/search",
 		        //dataType: 'json',
 		        contentType:'application/json; charset=utf-8',
 		        data: JSON.stringify($("#frm").serializeObject())
 		    }).done(function(data) {
-				alert("1");
 				alert(data);
 		    }).fail(function (error) {
 		        alert(JSON.stringify(error));

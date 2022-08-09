@@ -1,5 +1,7 @@
 package com.namanok.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.namanok.controller.dto.NoticeSearchDto;
 import com.namanok.entity.Notice;
 import com.namanok.service.NoticeService;
 
@@ -27,9 +30,11 @@ public class NoticeApiController {
 	 * @return
 	 */
 	@PostMapping(value = "/notice/search")
-	public String noticeSearch() {
-		noticeService.noticeSearch();
-		return "{\"aa\",\"bb\"}";
+	public NoticeSearchDto noticeSearch() {
+		NoticeSearchDto outDto = new NoticeSearchDto();
+		outDto.setNoticeSearch(noticeService.noticeSearch());
+		
+		return outDto;
 	}
 	
 	/**
